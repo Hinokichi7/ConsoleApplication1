@@ -2,16 +2,12 @@
 #include <string.h>
 
 main() {
-	char s[5] = { 'A', 'B', 'C', 'D', 0};
-	char s2[10];
-	strcpy_s(s2, 5, s);
+	static char a[25];
+	int b;
 
-	printf("%s\n", s2);
+	scanf_s("%s", a, 25);
+	scanf_s("%x", &b, 10);
 
-	int a;
-	a = 16161;
-
-	printf("Number is %x in hexadecimal.\n", a);
-	printf("Number is %d in decimal.\n", a);
-	printf("Number is %o in octal.\n", a);
+	printf(" String is : %s\n", a);
+	printf("Value is :%x\n", b);
 }
