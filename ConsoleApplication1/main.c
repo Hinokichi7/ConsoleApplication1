@@ -2,8 +2,12 @@
 #include <string.h>
 
 main() {
-	int dx = 0;
-	printf("INPUT DATA :");
-	scanf_s("%d", &dx);
-	printf(">> %d\n", dx);
+	char a[20];
+	int b;
+
+	scanf_s("%s", a, 20);
+	scanf_s("%x", &b);
+
+	printf("*** String is : %s ***\n", a);
+	printf("*** Value is : %x ***\n", b);
 }
