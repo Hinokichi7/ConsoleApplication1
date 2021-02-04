@@ -2,12 +2,16 @@
 #include <string.h>
 
 main() {
-	char a[20];
-	int b;
+	int a, b;
 
-	scanf_s("%s", a, 20);
-	scanf_s("%x", &b);
+	scanf_s("%d", &a);
+	scanf_s("%d", &b);
 
-	printf("*** String is : %s ***\n", a);
-	printf("*** Value is : %x ***\n", b);
+	if (a == b) {
+		printf("\n First == Second \n");
+	}
+	else
+	{
+		printf("\n First != Second \n");
+	}
 }
