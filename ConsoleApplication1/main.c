@@ -1,17 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 
+static char number[21] = "12345678901234567890";
 main() {
-	int a, b;
-
-	scanf_s("%d", &a);
-	scanf_s("%d", &b);
-
-	if (a == b) {
-		printf("\n First == Second \n");
-	}
-	else
+	int i;
+	i = 0;
+	while (i < 20)
 	{
-		printf("\n First != Second \n");
+		printf("%c\n", number[i]);
+		i++;
 	}
 }
