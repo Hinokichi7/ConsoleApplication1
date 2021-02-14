@@ -2,10 +2,9 @@
 #include <string.h>
 
 main() {
-	int* a;
-	int b;
-
-	a = 100000000;
-	b = *a;
-	printf("%x", b);
+	static char a[11] = "C Lmanguage";
+	printg(a);
+}
+printg(char a[]){
+	printf("\n%s\n", a);
 }
