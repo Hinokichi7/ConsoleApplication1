@@ -1,17 +1,16 @@
 #include <stdio.h>
 #include <string.h>
 
+
+void mul10(int *a) {
+	*a *= 10;
+}
 main() {
-	int a, b;
-
+	int a;
+	printf("Number =  : ");
 	scanf_s("%d", &a);
-	scanf_s("%d", &b);
 
-	if (a == b) {
-		printf("\n First == Second \n");
-	}
-	else
-	{
-		printf("\n First != Second \n");
-	}
+	mul10(&a);
+
+	printf("Number * 10 = : %d\n", a);
 }
