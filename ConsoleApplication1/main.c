@@ -1,16 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 
-
-void mul10(int *a) {
-	*a *= 10;
+int inputed(char comment[]) {
+	int val;
+	printf("%s", comment);
+	scanf_s("%d", &val);
+	return(val);
 }
 main() {
-	int a;
-	printf("Number =  : ");
-	scanf_s("%d", &a);
-
-	mul10(&a);
-
-	printf("Number * 10 = : %d\n", a);
+	printf("\n Value = %d\n", inputed("Input value in decimal :"));
 }
