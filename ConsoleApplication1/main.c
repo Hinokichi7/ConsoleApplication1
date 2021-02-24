@@ -3,35 +3,63 @@
 #include <stdlib.h>
 
 main() {
-	char file[64];
+	char file0[64];
+	char file1[64];
 	unsigned int i;
-	char baff[256];
-	FILE *fp = NULL;
-	errno_t error;
+	char buff[256];
+	FILE* fp0;
+	FILE* fp1;
+	errno_t error0;
+	errno_t erroe1;
 
-	printf("\n\n");
 	printf("Dump File-name : ");
-	scanf_s("%s", file, 60);
-	printf("\n");
-	printf("DUMP-FILE : %s\n\n", file);
+	scanf_s("%s", file0, 63);
+	printf("\n\n Dest Fime-name :");
+	scanf_s("%s", file0, 63);
 
+	error0 = fopen_s(&fp0, file0, "r");
+	erroe1 = fopen_s(&fp1, file1, "w");
+	//if (error0 != 0) {
+	//	printf("\7\n Cannot Open File : %s\n\n", file0);
+	//	exit(1);
+	//}
 
-	error = fopen_s(&fp, file, "r");
+	//if (erroe1 != 0) {
+	//	printf("\7\n Cannot Open File : %s\n\n", file1);
+	//	exit(1);
+	//}
 
-	if (error == 0) {
-		for (i = 0; i < 65535; ++i) {
-			if ((fgets(baff, 255, fp)) != NULL) {
-				printf("%5d : %s", i + 1, baff);
+	
+
+	if (error0 == 0 && erroe1 == 0) {
+		for (i = 0; i < 1000; i++) {
+			if (fgets(buff, 255, fp0) != NULL) {
+				fprintf(fp1, "%3d: %s", i + 1, buff);
 			}
 			else
 			{
 				break;
 			}
 		}
+		fclose(fp0);
+		fclose(fp1);
+	}
+	else if (error0 != 0)
+	{
+		printf("\7\n Cannot Open File : %s\n\n", file0);
+		exit(1);
+		fclose(fp1);
+	}
+	else if (erroe1 != 0)
+	{
+		printf("\7\n Cannot Open File : %s\n\n", file1);
+		exit(1);
+		fclose(fp0);
+	}
+	else
+	{
+		printf("\7\n Cannot Open File : %s, %s", file0, file1);
+		exit(1);
+	}
 
-		fclose(fp);
-	}
-	else {
-		printf("Cannot Open File : %s\n", file);
-	}
 }
